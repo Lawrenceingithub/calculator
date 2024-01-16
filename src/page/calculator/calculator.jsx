@@ -1,10 +1,13 @@
-import React from 'react'
+import React from "react";
 
 export const Calculator = () => {
   return (
-    <>    <div>calculator1</div>
-    <div>calculator2</div>
+    <>
+      {" "}
+      <div className="calculator">
+      <div>calculator1</div>
+      <div>calculator2</div>
+      </div>
     </>
-
-  )
-}
+  );
+};

@@ -5,6 +5,7 @@ import { Footer } from "./page/footer/footer";
 import { Calculator } from "./page/calculator/calculator";
 import { Ingredient } from "./page/ingredient/ingredient";
 import { Homepage } from "./page/homepage/homepage";
+import { Products } from "./page/products/products";
 
 function App() {
   return (
@@ -16,6 +17,7 @@ function App() {
             <Route path="/" exact element= {<Homepage />}/> 
             <Route path="/Calculator" exact element= {<Calculator />}/>
             <Route path="/Ingredient" exact element= {<Ingredient />}/>
+            <Route path="/Products" exact element= {<Products />}/>
           </Routes>
           <Footer />
         </div>

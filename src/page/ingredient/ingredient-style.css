@@ -1,0 +1,9 @@
+.vertical form{
+    display: flex;
+    flex-direction: column;
+  }
+
+.thumbnail{
+    width: 50%;
+    height: 50%;
+}

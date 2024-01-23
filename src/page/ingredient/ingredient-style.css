@@ -6,4 +6,9 @@
 .thumbnail{
     width: 50%;
     height: 50%;
+    align-content: center; 
+}
+
+.ingredient-link {
+  color: white;
 }

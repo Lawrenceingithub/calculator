@@ -2,11 +2,9 @@ import React, { useState } from "react";
 import { useAddIngredient } from "../hooks/useAddIngredient";
 import "./ingredient-style.css";
 
-export const Ingredient = () => {
-
+export const IngredientUpload = () => {
   const { addIngredient } = useAddIngredient();
-
-  const [ingredientPhoto, setingredientPhoto] = useState("");
+  const [ingredientPhoto, setIngredientPhoto] = useState(null);
   const [ingredientType, setIngredientType] = useState("");
   const [ingredientName, setIngredientName] = useState("");
   const [ingredientPrice, setIngredientPrice] = useState(0);
@@ -26,11 +24,12 @@ export const Ingredient = () => {
 
   const handlePhotoChange = (event) => {
     const file = event.target.files[0];
-    setingredientPhoto(URL.createObjectURL(file));
+    setIngredientPhoto(file);
   };
 
   const onSubmit = (e) => {
     e.preventDefault();
+
     addIngredient({
       ingredientPhoto,
       ingredientName,
@@ -39,8 +38,8 @@ export const Ingredient = () => {
       ingredientWeight,
       description,
     });
-    // 清空表單字段
-    setingredientPhoto("");
+
+    setIngredientPhoto(null);
     setIngredientName("");
     setIngredientType("");
     setIngredientPrice(0);
@@ -55,23 +54,32 @@ export const Ingredient = () => {
         <label>圖片上傳：</label>
         <input id="photo" type="file" onChange={handlePhotoChange} />
 
-        {ingredientPhoto && <img src={ingredientPhoto} alt="已選擇的圖片" className="thumbnail" />}
+        {ingredientPhoto && (
+          <img
+            src={URL.createObjectURL(ingredientPhoto)}
+            alt="已選擇的圖片"
+            className="thumbnail"
+          />
+        )}
         <label>類型：</label>
         <input
           id="type"
           placeholder="輸入類型"
+          value={ingredientType}
           onChange={(e) => setIngredientType(e.target.value)}
         />
         <label>名稱：</label>
         <input
           id="ingredientname"
           placeholder="輸入材料名稱"
+          value={ingredientName}
           onChange={(e) => setIngredientName(e.target.value)}
         />
         <label>價錢：</label>
         <input
           id="price"
           placeholder="輸入價錢"
+          value={ingredientPrice}
           onChange={(event) =>
             setIngredientPrice(parseFloat(event.target.value))
           }
@@ -80,6 +88,7 @@ export const Ingredient = () => {
         <input
           id="weight"
           placeholder="輸入重量"
+          value={ingredientWeight}
           onChange={(event) =>
             setIngredientWeight(parseFloat(event.target.value))
           }
@@ -88,11 +97,14 @@ export const Ingredient = () => {
         <input
           id="description"
           placeholder="備註"
+          value={description}
           onChange={(event) => setDescription(event.target.value)}
         />
         <label>平均價格：</label>
-        <span>{calculateAverage()} 克/毫升</span>
-        <button type="submite">提交</button>
+        <div>
+          <span>{calculateAverage()} 克/毫升</span>
+        </div>
+        <button type="submit">提交</button>
       </form>
     </div>
   );

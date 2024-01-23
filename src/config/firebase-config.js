@@ -1,6 +1,7 @@
 // Import the functions you need from the SDKs you need
 import { initializeApp } from "firebase/app";
 import { getFirestore } from "firebase/firestore";
+import { getStorage }from "firebase/storage";
 // TODO: Add SDKs for Firebase products that you want to use
 // https://firebase.google.com/docs/web/setup#available-libraries
 
@@ -13,9 +14,11 @@ const firebaseConfig = {
   storageBucket: "calculator-d8296.appspot.com",
   messagingSenderId: "1034664517549",
   appId: "1:1034664517549:web:fce5ea85e7cff4e85f0b24",
-  measurementId: "G-70BV4P0DYX"
+  measurementId: "G-70BV4P0DYX",
+  ingredientsStorage: "gs://calculator-d8296.appspot.com/ingredients-photo"
 };
 
 // Initialize Firebase
 const app = initializeApp(firebaseConfig);
 export const db = getFirestore(app);
+export const storage = getStorage(app);

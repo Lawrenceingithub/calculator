@@ -16,6 +16,20 @@ export const Homepage = () => {
         </h1>
         <h1
           onClick={() => {
+            navigate("/ProductList");
+          }}
+        >
+          產品列表
+        </h1>
+        <h1
+          onClick={() => {
+            navigate("/IngredientList");
+          }}
+        >
+          材料列表
+        </h1>
+        <h1
+          onClick={() => {
             navigate("/Products");
           }}
         >
@@ -23,7 +37,7 @@ export const Homepage = () => {
         </h1>
         <h1
           onClick={() => {
-            navigate("/Ingredient");
+            navigate("/IngredientUpload");
           }}
         >
           加入材料

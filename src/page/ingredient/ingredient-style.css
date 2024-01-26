@@ -1,14 +1,24 @@
-.vertical form{
-    display: flex;
-    flex-direction: column;
-  }
+.vertical form {
+  display: flex;
+  flex-direction: column;
+}
 
-.thumbnail{
-    width: 50%;
-    height: 50%;
-    align-content: center; 
+.vertical form button {
+  font-weight: bold;
+  font-size: 15px;
+}
+
+.add-btn {
+  align-items: center; /* 垂直居中 */
+}
+
+.thumbnail {
+  width: 50%;
+  height: 50%;
+  align-content: center;
 }
 
 .ingredient-link {
   color: white;
 }
+

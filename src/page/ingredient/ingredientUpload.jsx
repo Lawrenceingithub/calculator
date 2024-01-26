@@ -63,10 +63,11 @@ export const IngredientUpload = () => {
         )}
         <label>類型：</label>
         <input
-          id="type"
+          id="ingredienttype"
           placeholder="輸入類型"
           value={ingredientType}
           onChange={(e) => setIngredientType(e.target.value)}
+          required
         />
         <label>名稱：</label>
         <input
@@ -74,24 +75,27 @@ export const IngredientUpload = () => {
           placeholder="輸入材料名稱"
           value={ingredientName}
           onChange={(e) => setIngredientName(e.target.value)}
+          required
         />
         <label>價錢：</label>
         <input
-          id="price"
+          id="ingredientprice"
           placeholder="輸入價錢"
           value={ingredientPrice}
           onChange={(event) =>
             setIngredientPrice(parseFloat(event.target.value))
           }
+          required
         />
         <label>重量：</label>
         <input
-          id="weight"
+          id="ingredientweight"
           placeholder="輸入重量"
           value={ingredientWeight}
           onChange={(event) =>
             setIngredientWeight(parseFloat(event.target.value))
           }
+          required
         />
         <label>備註：</label>
         <input
@@ -99,6 +103,7 @@ export const IngredientUpload = () => {
           placeholder="備註"
           value={description}
           onChange={(event) => setDescription(event.target.value)}
+          required
         />
         <label>平均價格：</label>
         <div>

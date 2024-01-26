@@ -9,10 +9,13 @@ import {
   updateDoc,
   serverTimestamp,
 } from "firebase/firestore";
+import { useNavigate } from "react-router-dom";
 
 export const useAddIngredient = () => {
   const ingredientCollectionRef = collection(db, "ingredients");
   const [loading, setLoading] = useState(false);
+
+  const navigate = useNavigate();
 
   const addIngredient = async ({
     ingredientName,
@@ -59,7 +62,8 @@ export const useAddIngredient = () => {
       const ingredientDocRef = doc(db, "ingredients", ingredientId);
       await deleteDoc(ingredientDocRef);
 
-      console.log("材料删除成功");
+      alert("材料删除成功");
+      navigate("/IngredientList")
     } catch (error) {
       console.error("删除材料时出错:", error);
     }
